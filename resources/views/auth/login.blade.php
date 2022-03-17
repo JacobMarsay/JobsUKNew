@@ -143,7 +143,7 @@
               </svg>
               
             <div class="form_container">
-                <h1 class="title">Login</h1>
+                <h1 class="title">Login TITLE</h1>
                 <form class="login_form" action="{{ route('authenticate') }}" method="POST">
                     @csrf
                     <div class="">
