@@ -1,7 +1,37 @@
 @import '../abstracts/colors.scss';
-@import '../components/headers.scss';
+@import '../components/text.scss';
 
 
-.job__list {
-    color: $primary-colour;
+.form_container {
+    // position: absolute;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    border-radius: 20px;
+}
+
+.login_input{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    box-shadow: 3px 4px ;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+    display: flex;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+    }
+
+    input{
+        display: inline;
+        border:none;
+        margin-left: 10px;
+    }
+
 }

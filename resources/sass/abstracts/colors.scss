@@ -19,3 +19,35 @@ $dm-accent-colour:#0792A5;
 $dm-background-colour:#484848;
 $dm-heading-colour:#C9C9C9;
 $dm-text-colour:#C9C9C9;
+
+h1{
+    color: $heading-colour;
+}
+
+p, label{
+    color: $text-colour;
+}
+
+a{
+    color: $primary-colour;
+}
+
+input{
+    &:focus{
+        outline: none;
+    }
+}
+
+svg{
+    fill: $text-colour;
+
+}
+
+.form_container{
+    background-color: $secondary-colour;
+}
+
+.login_button{
+    color: $button-text;
+    background-color: $primary-colour;
+}
