@@ -4,13 +4,15 @@
 $primary-colour:#0792A5;
 $secondary-colour:#ffffff;
 $accent-colour:#0792A5;
-$background-colour:#baf0f749;
+$background-colour:#dbf2f5;
 $heading-colour:#484848;
 $text-colour:#727272;
 $button-text:#ffffff;
 $status-colour-interview:#C4E300;
 $status-colour-pending:#E38800;
 $status-colour-declined:#E30000;
+$check-list-icon:#009521;
+
 
 //Darkmode Colours
 $dm-primary-colour:#5F5F5F;
@@ -21,6 +23,10 @@ $dm-heading-colour:#C9C9C9;
 $dm-text-colour:#C9C9C9;
 
 h1{
+    color: $heading-colour;
+}
+
+h2{
     color: $heading-colour;
 }
 
@@ -40,7 +46,14 @@ input{
 
 svg{
     fill: $text-colour;
+}
 
+li{
+    color: $text-colour;
+}
+
+.background_container{
+    background-color: $primary-colour;
 }
 
 .form_container{
@@ -51,3 +64,43 @@ svg{
     color: $button-text;
     background-color: $primary-colour;
 }
+
+.index_box{
+    background-color: $secondary-colour;
+}
+
+.link{
+    color: $button-text;
+    background-color: $primary-colour;
+}
+
+.icon_list_item{
+    svg {
+        fill:$check-list-icon;
+    }
+}
+
+.navbar{
+    background-color: $secondary-colour;
+    box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+    
+
+    a{
+    color: $text-colour;
+    }
+}
+
+.navbar a:hover {
+    background-color: $primary-colour;
+    color: $secondary-colour;
+}
+
+.content_container {
+      background-color: $background-colour;
+}
+
+.items_section_left{
+    background-color: $secondary-colour;
+}
+
+

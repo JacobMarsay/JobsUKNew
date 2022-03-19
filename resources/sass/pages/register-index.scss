@@ -1,0 +1,35 @@
+@import '../components/text.scss';
+
+.index_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.index_box{
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 50px;
+    border-radius: 20px;
+    p{
+        margin:20px 0px;
+    }
+
+    ul {
+        margin-bottom: 30px;
+    }
+}
+
+.index_box:first-child{
+    margin-right: 90px;
+}
+
+.link{
+    display: inline;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    
+}

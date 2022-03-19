@@ -1,0 +1,30 @@
+.navbar{
+    width: 180px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+
+    a{
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    }
+
+    svg{
+        width: 100%;
+    }
+}
+
+.nav_bottom{
+    position: relative;
+    
+}
+.logo_bottom{
+    position: fixed;
+    bottom: -10px;
+
+}
+
+.nav_content {
+    margin-top: 30px;
+}

@@ -1,0 +1,21 @@
+.icon_list {
+    display: block;
+}
+
+.icon_list_item {
+    display: inline;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        margin: 10px 10px 0px 0px;
+    }
+}
+
+.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+
+
