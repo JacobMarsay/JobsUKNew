@@ -69,21 +69,44 @@ li {
 }
 
 .content_container {
-  background-color: #dbf2f5;
+  background-color: #f1fafa;
 }
 
-.items_section_left {
+.items_section:first-child {
   background-color: #ffffff;
+  box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+}
+
+.notifications_section {
+  background-color: #ffffff;
+  box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+}
+
+.quick_links_section {
+  background-color: #ffffff;
+  box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+}
+.quick_links_section a {
+  color: #727272;
+}
+.quick_links_section a:hover {
+  color: #0792A5;
+}
+
+.post_card {
+  background-color: #ffffff;
+  box-shadow: 10px 10px 35px rgba(126, 126, 126, 0.404);
+}
+
+.show_button {
+  background-color: #0792A5;
+  color: #ffffff;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
-  overflow: hidden;
 }
 
 .background_container {
@@ -155,6 +178,31 @@ a {
   text-decoration: none;
 }
 
+.notifications_section li {
+  font-size: 13px;
+}
+
+.quick_links_section li {
+  font-size: 13px;
+}
+
+.post_card h3 a {
+  font-size: 20px;
+}
+.post_card p {
+  font-size: 11px;
+}
+.post_card a {
+  font-size: 13px;
+}
+.post_card .show_button {
+  font-size: 12px;
+}
+
+.pagination_container {
+  font-family: "Montserrat";
+}
+
 .login_button {
   width: 100%;
   border-radius: 20px;
@@ -180,6 +228,10 @@ a {
   margin-left: 200px;
   padding: 1px 16px;
   height: 1000px;
+}
+
+.page_title {
+  text-align: center;
 }
 
 h1, h2, p, label, button, li, a {
@@ -221,6 +273,31 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+.notifications_section li {
+  font-size: 13px;
+}
+
+.quick_links_section li {
+  font-size: 13px;
+}
+
+.post_card h3 a {
+  font-size: 20px;
+}
+.post_card p {
+  font-size: 11px;
+}
+.post_card a {
+  font-size: 13px;
+}
+.post_card .show_button {
+  font-size: 12px;
+}
+
+.pagination_container {
+  font-family: "Montserrat";
 }
 
 .form_container {
@@ -297,6 +374,31 @@ a {
   text-decoration: none;
 }
 
+.notifications_section li {
+  font-size: 13px;
+}
+
+.quick_links_section li {
+  font-size: 13px;
+}
+
+.post_card h3 a {
+  font-size: 20px;
+}
+.post_card p {
+  font-size: 11px;
+}
+.post_card a {
+  font-size: 13px;
+}
+.post_card .show_button {
+  font-size: 12px;
+}
+
+.pagination_container {
+  font-family: "Montserrat";
+}
+
 .index_container {
   display: flex;
   justify-content: center;
@@ -354,4 +456,111 @@ a {
 
 .nav_content {
   margin-top: 30px;
+}
+
+.dashboard_content {
+  width: 100%;
+  display: flex;
+}
+.dashboard_content .items_section {
+  margin: 10px;
+  width: 50%;
+  right: 0;
+}
+.dashboard_content .items_section h2 {
+  text-align: center;
+}
+.dashboard_content .items_section.updates {
+  width: 50%;
+}
+.dashboard_content .items_section:first-child {
+  border-radius: 20px;
+  margin-right: 20px;
+  width: 100%;
+}
+.dashboard_content .notifications_section {
+  border-radius: 20px;
+  width: 90%;
+  padding: 10px;
+  list-style: none;
+}
+.dashboard_content .notifications_section li {
+  padding: 5px;
+}
+.dashboard_content .notifications_section .section_title_container {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.dashboard_content .notifications_section .section_title_container .section_title {
+  text-align: center;
+}
+.dashboard_content .quick_links_section {
+  margin-top: 30px;
+  border-radius: 20px;
+  width: 90%;
+  padding: 10px;
+  list-style: none;
+}
+.dashboard_content .quick_links_section .section_title_container {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.dashboard_content .quick_links_section .section_title_container .section_title {
+  text-align: center;
+}
+.dashboard_content .quick_links_section h2 {
+  margin-bottom: 25px;
+}
+.dashboard_content .quick_links_section li {
+  padding: 5px;
+}
+.dashboard_content .quick_links_section .quick_link {
+  margin-left: 20px;
+}
+
+.pagination_container {
+  display: block;
+  text-align: center;
+}
+.pagination_container .pagination {
+  padding: 25px;
+  opacity: 95%;
+}
+.pagination_container .pagination svg {
+  height: 15px;
+}
+
+.post_card {
+  width: 80%;
+  margin: 20px 60px 30px 60px;
+  padding: 30px;
+  border-radius: 20px;
+}
+.post_card h3 {
+  margin-bottom: 10px;
+}
+.post_card p {
+  border-right: solid 1px;
+  padding-right: 5px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.post_card p:last-child {
+  border-right: none;
+}
+.post_card .button_containter {
+  display: block;
+}
+.post_card .show_button {
+  margin-top: 15px;
+  display: inline;
+  padding: 6px;
+  border-radius: 10px;
+}
+.post_card .items svg {
+  margin-left: 5px;
 }

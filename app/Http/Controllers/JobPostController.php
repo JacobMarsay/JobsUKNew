@@ -17,24 +17,26 @@ class JobPostController extends Controller
     public function index() {
         
         $user_id = Auth::id();
+
+        $user = User::select('users.*')->where('users.id',$user_id)->first();
        
         $jobPosts = Company::join('users', 'users.id', '=', 'company.user_id')
             ->join('jobpost', 'jobpost.company_id', '=', 'company.id')
             ->where('users.id', $user_id)->orderBy('jobpost.created_at', 'DESC')->paginate(3);
-       
-        $address = Address::join('company', 'company.id', '=', 'address.company_id')
-            ->join('users', 'users.id', '=', 'company.user_id')
-            ->where('users.id', $user_id)->first();
 
         $skills = Skills::join('job_post_skills', 'skills.id', '=', 'job_post_skills.skills_id')
             ->join('jobpost', 'jobpost.id', '=', 'job_post_skills.job_post_id')
             ->join('company', 'company.id', '=', 'jobpost.company_id')
             ->join('users', 'users.id', '=', 'company.user_id')
             ->where('users.id', $user_id)->get();
+
+        $address = Address::join('company', 'company.id', '=', 'address.company_id')
+            ->join('users', 'users.id', '=', 'company.user_id')
+            ->where('users.id', $user_id)->first();
         
 
         //Returns view with collection items
-        return view('posts/index')->with('jobPosts', $jobPosts)->with('address', $address)->with('skills', $skills);
+        return view('posts/index')->with('jobPosts', $jobPosts)->with('address', $address)->with('skills', $skills)->with('user', $user);
     }
 
     public function create() {
@@ -85,11 +87,22 @@ class JobPostController extends Controller
     }
 
     public function show($id){
-       $jobPost = JobPost::find($id);
-       $skills = Skills::find($id);
-       $benefits = Benefits::find($id);
+        $user_id = Auth::id();
+        $user = Auth::User($id);
+        $jobPost = JobPost::find($id);
+        $skills = Skills::find($id);
+        $benefits = Benefits::find($id);
 
-        return view('posts.show')->with('jobPost', $jobPost)->with('benefits', $benefits)->with('skills', $skills);
+        $address = Address::join('company', 'company.id', '=', 'address.company_id')
+            ->join('users', 'users.id', '=', 'company.user_id')
+            ->where('users.id', $user_id)->first();
+        
+                
+        $company = Company::join('users', 'users.id', '=', 'company.user_id')
+            ->where('users.id', $user_id)->first();
+        
+
+        return view('posts.show')->with('jobPost', $jobPost)->with('benefits', $benefits)->with('skills', $skills)->with('address', $address)->with('user', $user)->with('company', $company);
 
     }
 

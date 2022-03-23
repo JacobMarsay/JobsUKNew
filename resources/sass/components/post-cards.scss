@@ -1,0 +1,39 @@
+.post_card{
+    width: 80%;
+    margin: 20px 60px 30px 60px;
+    padding: 30px;
+    border-radius: 20px;
+
+    h3{
+        margin-bottom: 10px;
+    }
+
+    p{
+        border-right: solid 1px;
+        padding-right: 5px;
+        display:inline-block;
+        margin-bottom: 20px;
+    }
+
+    p:last-child{
+        border-right: none;
+    }
+
+    .button_containter{
+        display: block;
+        
+    }
+    .show_button{
+        margin-top: 15px;
+        display: inline;
+        padding: 6px;
+        border-radius: 10px;
+    }
+
+    .items{
+        svg{
+            margin-left: 5px;
+        }
+    }
+        
+}

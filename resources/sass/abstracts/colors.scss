@@ -4,7 +4,7 @@
 $primary-colour:#0792A5;
 $secondary-colour:#ffffff;
 $accent-colour:#0792A5;
-$background-colour:#dbf2f5;
+$background-colour:#f1fafa;
 $heading-colour:#484848;
 $text-colour:#727272;
 $button-text:#ffffff;
@@ -99,8 +99,37 @@ li{
       background-color: $background-colour;
 }
 
-.items_section_left{
+.items_section:first-child{
     background-color: $secondary-colour;
+    box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+}
+
+.notifications_section{
+    background-color: $secondary-colour;
+    box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+}
+
+.quick_links_section{
+    background-color: $secondary-colour;
+    box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+    
+    a{
+        color: $text-colour;
+    }
+
+    a:hover{
+        color: $primary-colour;
+    }
+}
+
+.post_card{
+    background-color: $secondary-colour;
+    box-shadow: 10px 10px 35px rgba(126, 126, 126, 0.404);
+}
+
+.show_button{
+    background-color: $primary-colour;
+    color: $button-text;
 }
 
 

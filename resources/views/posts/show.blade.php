@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
 
+<li>{{ $user->email }}</li>
+<li>{{ $address->street_name }}</li>
+<li>{{ $company->company_name }}</li>
 <h2>Job Overview</h2>
+
 <ul class="jobpost__list">
     <li>{{ $jobPost->job_title }}</li>
     <li>{{ $jobPost->job_description }}</li>
@@ -9,7 +13,16 @@
     <li>{{ $jobPost->commute_type }}</li>
     <li>{{ $jobPost->contract_type }}</li>
 
+    {{-- <li>{{ $company->company_name }}</li> --}}
+    
+    {{-- <li>{{ $address->house_number}}</li>
+    <li>{{ $address->street_name }}</li>
+    <li>{{ $address->postcode }}</li>
+    <li>{{ $address->city }}</li>
+    <li>{{ $address->county }}</li> --}}
+
 </ul>
+
 
 <h2>Required Skills</h2>
 @foreach ($jobPost->skills as $skill)
