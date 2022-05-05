@@ -87,7 +87,8 @@ class JobPostController extends Controller
     }
 
     public function show($id){
-
+        $user_id = Auth::id();
+        $user = Auth::User($id);
         $jobPost = JobPost::find($id);
         $skills = Skills::find($id);
         $benefits = Benefits::find($id);

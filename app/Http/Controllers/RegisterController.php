@@ -135,23 +135,6 @@ class RegisterController extends Controller
         ->where('skills.skill_name', $data)->get();
         
         $application->skills()->attach($skills); 
-        
-
-        // $input = Education::all();
-        // $courseName = $input['course_name'];
-
-        // $input = $request->input();
-        // foreach ($input as $key => $input){
-        //     $qualification = new Education;
-        //     $qualification->place_of_institution = $input['place_of_institution'][$key];
-        //     $qualification->education_type = $input['education_type'][$key];
-        //     $qualification->course_name = $input['course_name'][$key];
-        //     $qualification->results = $input['results'][$key];
-        //     $application->education()->save($qualification);
-        // }
-       
-
-    
 
         $references = new Reference;
         $references->previous_company_name = $request->previous_company_name;

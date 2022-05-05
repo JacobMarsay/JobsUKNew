@@ -33,7 +33,7 @@
     <input type="text" id="career_type" name="career_type">
 
     <h1>Skill Set</h1>
-    <p>Please enter your soft and technical skills.</p>
+    <p>Please select your soft and technical skills.</p>
     
     <select id="skill_name" name="skill_name">
     @foreach($skills as $skill)

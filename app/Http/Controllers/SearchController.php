@@ -9,19 +9,29 @@ use App\Models\JobSeeker;
 use App\Models\Address;
 use App\Models\Application;
 use App\Models\Skills;
+use Session;
 
 
 class SearchController extends Controller
 {
-    public function showApplicants(Request $request){
-        $post_id = $request->route('id');
+    public function showApplicants(JobPost $jobPost){
 
-        $jobPost = JobPost::select('jobpost.*')
-        ->where('jobpost.id', $post_id)->first();
-
-        var_dump($jobPost);
+        $jobPostId = session('jobPostId');
+        var_dump($jobPostId);
 
 
-        return view('search/applicants');
+        $jobPostSkills = Skills::join('job_post_skills', 'skills.id', '=', 'job_post_skills.skills_id')
+        ->where('job_post_skills.job_post_id', $jobPostId)->get();
+
+        var_dump($jobPostId);
+        
+
+        foreach($jobPostSkills as $test) {
+            $skillsOnJobPost[] = $test->id;
+        }
+
+        
+
+        return view('search/applicants')->with(['test' => $jobPost]);
     }
 }
