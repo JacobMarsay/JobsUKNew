@@ -20,6 +20,9 @@ class UserApplicationController extends Controller
         $user_id = Auth::id();
         //in job seekers table, first connect to other table 'users' then join on the common value.
         //e.g matching id's so in jobseekers table you have user_id which references id in users table.
+
+        $user = User::select('users.email')
+        ->where('id', $user_id)->first();
     
         $jobSeeker = JobSeeker::select('jobseeker.*')
         ->join('users', 'users.id', '=', 'jobseeker.user_id')
@@ -57,14 +60,8 @@ class UserApplicationController extends Controller
             ->where('users.id', $user_id)->get();
 
 
-        return view('application/index')->with('application', $application)->with('address', $address)->with('education', $education)->with('references', $references)->with('jobSeeker', $jobSeeker)->with('skills', $skills);
+        return view('application/index')->with('application', $application)->with('address', $address)->with('education', $education)->with('references', $references)->with('jobSeeker', $jobSeeker)->with('skills', $skills)->with('user', $user);
 
-    }
-
-
-    public function show(){
-        
-        
     }
 
     public function edit($id){
@@ -102,14 +99,6 @@ class UserApplicationController extends Controller
             'employer_contact' => 'required',
             'duration_worked' => 'required',
         ]);
-
-       
-        
-        
-        // $jobSeeker = JobSeeker::find($id);
-        // $address = Address::find($id);
-        // $application = Application::find($id);
-        // $education = Education::findOrFail($id);
 
         $jobSeeker = JobSeeker::where('id',$id)->first();
         $application = Application::where('id',$id)->first();

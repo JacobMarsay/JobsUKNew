@@ -1,11 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-<h2>Your Application</h2>
-
-<li>{{$jobSeeker->first_name}} {{$jobSeeker->last_name}}</li>
+<h2>{{$jobSeeker->first_name}} {{$jobSeeker->last_name}}</h2>
 <li>{{$jobSeeker->contact_number}}</li>
-{{-- <li>{{$application[0]->email}}</li> --}}
+<li>{{$application[0]->email}}</li>
 
 <li>{{$application->career_type}}</li>
 <li>Years Of Experience: {{$application->years_of_experience}}</li>

@@ -87,7 +87,8 @@ class JobPostController extends Controller
     }
 
     public function show($id){
-
+        $user_id = Auth::id();
+        $user = Auth::User($id);
         $jobPost = JobPost::find($id);
         $skills = Skills::find($id);
         $benefits = Benefits::find($id);
@@ -105,44 +106,6 @@ class JobPostController extends Controller
 
     }
 
-    public function edit($id){
-        $jobPost = JobPost::find($id);
-        $benefits = Benefits::find($id);
-        
-       
-        return view('posts.edit')->with('jobPost', $jobPost)->with('benefits', $benefits);
-    }
-    
-    public function update(Request $request, $id) {
-        $request->validate([
-            'job_title' => 'required',
-            'job_description' => 'required',
-            'salary' => 'required',
-            'commute_type' => 'required',
-            'contract_type' => 'required',
-            'benefits' => 'required',
-        ]);
-        
-        $jobPost = JobPost::where('id',$id)->first();
-        $benefit = Benefits::where('id',$id)->first();
-        
-    
-        //Saves Job post changes
-        $jobPost->job_title = $request->input('job_title');
-        $jobPost->job_description = $request->input('job_description');
-        $jobPost->salary = $request->input('salary');
-        $jobPost->commute_type = $request->input('commute_type');
-        $jobPost->contract_type = $request->input('contract_type');
-        $jobPost->save();
-    
-    
-        //Saves benefit changes
-        $benefit->benefits = $request->input('benefits');
-        $benefit->save();
-        
-        return redirect()->route('posts.index')->with('success', 'Job Post updated Successfully.');
-    }
-
 
     public function destroy($id){
 
@@ -157,3 +120,47 @@ class JobPostController extends Controller
         return redirect()->route('posts.index')->with('success', 'Post Removed Successfully');
     }
 }
+
+
+
+
+
+
+
+// public function edit($id){
+//     // $jobPost = JobPost::find($id);
+//     // $benefits = Benefits::find($id);
+    
+   
+//     // return view('posts.edit')->with('jobPost', $jobPost)->with('benefits', $benefits);
+// }
+
+// public function update(Request $request, $id) {
+//     $request->validate([
+//         'job_title' => 'required',
+//         'job_description' => 'required',
+//         'salary' => 'required',
+//         'commute_type' => 'required',
+//         'contract_type' => 'required',
+//         'benefits' => 'required',
+//     ]);
+    
+//     $jobPost = JobPost::where('id',$id)->first();
+//     $benefit = Benefits::where('id',$id)->first();
+    
+
+//     //Saves Job post changes
+//     $jobPost->job_title = $request->input('job_title');
+//     $jobPost->job_description = $request->input('job_description');
+//     $jobPost->salary = $request->input('salary');
+//     $jobPost->commute_type = $request->input('commute_type');
+//     $jobPost->contract_type = $request->input('contract_type');
+//     $jobPost->save();
+
+
+//     //Saves benefit changes
+//     $benefit->benefits = $request->input('benefits');
+//     $benefit->save();
+    
+//     return redirect()->route('posts.index')->with('success', 'Job Post updated Successfully.');
+// }

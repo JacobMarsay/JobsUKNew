@@ -41,5 +41,8 @@
     <button type="submit" class="btn btn-red">Delete</button>
 </form>
 
-{{-- <a class="btn btn-blue" href="{{ route('posts.edit', $jobPost->id) }}">Edit</a> --}}
+<a class="show_button" href="{{ route('showApplications',$jobPost->id) }}">Find Applicants</a>
+
+<a class="btn btn-blue" href="{{ route('posts.edit', $jobPost->id) }}">Edit</a>
 @endsection
+

@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500');
 
-h1, h2, p, label, button, li, a {
+h1, h2, h3, p, label, button, li, a {
     font-family: "Montserrat";
     margin-top: 10px;
 }
 
 h1{
-    font-size: 48px;
+    font-size: 30px;
 }
 
 h2{
+    font-size:24px;
+}
+
+h3{
     font-size:24px;
 }
 
@@ -34,7 +38,9 @@ ul{
 a{
     text-decoration: none;
 }
-
+.content{
+    
+}
 .notifications_section{
     
     li{
