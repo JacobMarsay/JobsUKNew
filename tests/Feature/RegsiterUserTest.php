@@ -18,7 +18,7 @@ class RegsiterUserTest extends TestCase
     public function displayJobSeekerRegistrationPage()
     {
         $response = $this->visit('/jobseeker-registration')
-        ->seePageIs('/jobseeker-registration');
+            ->seePageIs('/jobseeker-registration');
     }
 
    
@@ -56,13 +56,12 @@ class RegsiterUserTest extends TestCase
     public function displayCompanyRegistrationPage()
     {
         $response = $this->visit('/company-registration')
-        ->seePageIs('/company-registration');
+            ->seePageIs('/company-registration');
     }
 
     public function testCompanyRegistrationForm()
     {
         $response = $this->visit('/company-registration')
-            
             ->type('test1company@outlook.com', 'email')
             ->type('password', 'password')
             ->type('Test Company', 'company_name')
@@ -76,10 +75,4 @@ class RegsiterUserTest extends TestCase
             ->press('Register')
             ->seePageIs('/');
     }
-
-
-
-
-
-
 }
