@@ -205,3 +205,148 @@ if(jobSectionNine) {
 		jobSectionEight.style.display = "block";
 	});
 }
+
+//Education - Allows multiple inputs to be appended to DOM
+const educationWrapper = document.querySelector('.education-wrapper');
+const addEducationBtn = document.querySelector('.add-education-input');
+
+if (educationWrapper) {
+	addEducationBtn.addEventListener('click', function(e) {
+		e.preventDefault();
+
+		let educationDiv = document.createElement('div');
+		educationDiv.classList.add('education-row');
+
+		let deleteBtn = document.createElement('button');
+		deleteBtn.classList.add('delete-row');
+		deleteBtn.innerText = '-'
+
+		let inputInstitution = document.createElement('input');
+		inputInstitution.id = 'place_of_institution';
+		inputInstitution.setAttribute('name', 'education[]');
+		inputInstitution.setAttribute('type', 'text');
+		inputInstitution.setAttribute('placeholder', 'Institution');
+
+		let courseType = document.createElement('input');
+		courseType.id = 'course_type';
+		courseType.setAttribute('name', 'education[]');
+		courseType.setAttribute('type', 'text');
+		courseType.setAttribute('placeholder', 'Course Type');
+
+		let courseName = document.createElement('input');
+		courseType.id = 'course_name';
+		courseName.setAttribute('name', 'education[]');
+		courseName.setAttribute('type', 'text');
+		courseName.setAttribute('placeholder', 'Course Name');
+
+		let result = document.createElement('input');
+		result.id = 'result';
+		result.setAttribute('name', 'education[]');
+		result.setAttribute('type', 'text');
+		result.setAttribute('placeholder', 'Result');
+
+		educationDiv.appendChild(inputInstitution);
+		educationDiv.appendChild(courseType);
+		educationDiv.appendChild(courseName);
+		educationDiv.appendChild(result);
+		educationDiv.appendChild(deleteBtn);
+
+		educationWrapper.appendChild(educationDiv);
+
+		deleteBtn.addEventListener('click', function(e) {
+			e.preventDefault();
+			this.parentElement.remove();
+		});
+	});
+}
+
+//References - Allows multiple inputs to be appended to DOM
+const referencesWrapper = document.querySelector('.references-wrapper');
+const addReferenceBtn = document.querySelector('.add-reference-input');
+
+if (referencesWrapper) {
+	addReferenceBtn.addEventListener('click', function(e) {
+		e.preventDefault();
+
+		let referenceDiv = document.createElement('div');
+		referenceDiv.classList.add('reference-row');
+
+		let deleteBtn = document.createElement('button');
+		deleteBtn.classList.add('delete-row');
+		deleteBtn.innerText = '-'
+
+		let previousEmployer = document.createElement('input');
+		previousEmployer.id = 'previous_company_name';
+		previousEmployer.setAttribute('name', 'reference[]');
+		previousEmployer.setAttribute('type', 'text');
+		previousEmployer.setAttribute('placeholder', 'Previous Company Name');
+
+		let employerName = document.createElement('input');
+		employerName.id = 'employer_name';
+		employerName.setAttribute('name', 'reference[]');
+		employerName.setAttribute('type', 'text');
+		employerName.setAttribute('placeholder', 'Employer Name');
+
+		let employerContact = document.createElement('input');
+		employerContact.id = 'employer_contact';
+		employerContact.setAttribute('name', 'reference[]');
+		employerContact.setAttribute('type', 'text');
+		employerContact.setAttribute('placeholder', 'Employer Contact');
+
+		let durationWorked = document.createElement('input');
+		durationWorked.id = 'duration_worked';
+		durationWorked.setAttribute('name', 'reference[]');
+		durationWorked.setAttribute('type', 'text');
+		durationWorked.setAttribute('placeholder', 'Duration Worked');
+
+		referenceDiv.appendChild(previousEmployer);
+		referenceDiv.appendChild(employerName);
+		referenceDiv.appendChild(employerContact);
+		referenceDiv.appendChild(durationWorked);
+		referenceDiv.appendChild(deleteBtn);
+
+		referencesWrapper.appendChild(referenceDiv);
+
+		deleteBtn.addEventListener('click', function(e) {
+			e.preventDefault();
+			this.parentElement.remove();
+		});
+	});
+}
+
+
+//Benefits - Allows multiple inputs to be appended to DOM
+const benefitsWrapper = document.querySelector('.benefits-wrapper');
+const addBenefitBtn = document.querySelector('.add-benefit-input');
+
+if (benefitsWrapper) {
+	addBenefitBtn.addEventListener('click', function(e) {
+		e.preventDefault();
+	
+		console.log('helo')
+	
+		let benefitDiv = document.createElement('div');
+		benefitDiv.classList.add('benefit-row');
+	
+		let benefit = document.createElement('input');
+		benefit.id = 'benefits';
+		benefit.classList.add('benefit');
+		benefit.setAttribute('name', 'benefits[]');
+		benefit.setAttribute('type', 'text');
+		benefit.setAttribute('placeholder', 'Benefit');
+	
+		let deleteBtn = document.createElement('button');
+		deleteBtn.classList.add('delete-row');
+		deleteBtn.innerText = '-'
+	
+		benefitDiv.appendChild(benefit);
+		benefitDiv.appendChild(deleteBtn);
+	
+		benefitsWrapper.appendChild(benefitDiv);
+	
+		deleteBtn.addEventListener('click', function(e) {
+			e.preventDefault();
+			this.parentElement.remove();
+		});
+	});
+}

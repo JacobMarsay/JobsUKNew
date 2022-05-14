@@ -2355,6 +2355,125 @@ if (jobSectionNine) {
     jobSectionNine.style.display = "none";
     jobSectionEight.style.display = "block";
   });
+} //Education - Allows multiple inputs to be appended to DOM
+
+
+var educationWrapper = document.querySelector('.education-wrapper');
+var addEducationBtn = document.querySelector('.add-education-input');
+
+if (educationWrapper) {
+  addEducationBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    var educationDiv = document.createElement('div');
+    educationDiv.classList.add('education-row');
+    var deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-row');
+    deleteBtn.innerText = '-';
+    var inputInstitution = document.createElement('input');
+    inputInstitution.id = 'place_of_institution';
+    inputInstitution.setAttribute('name', 'education[]');
+    inputInstitution.setAttribute('type', 'text');
+    inputInstitution.setAttribute('placeholder', 'Institution');
+    var courseType = document.createElement('input');
+    courseType.id = 'course_type';
+    courseType.setAttribute('name', 'education[]');
+    courseType.setAttribute('type', 'text');
+    courseType.setAttribute('placeholder', 'Course Type');
+    var courseName = document.createElement('input');
+    courseType.id = 'course_name';
+    courseName.setAttribute('name', 'education[]');
+    courseName.setAttribute('type', 'text');
+    courseName.setAttribute('placeholder', 'Course Name');
+    var result = document.createElement('input');
+    result.id = 'result';
+    result.setAttribute('name', 'education[]');
+    result.setAttribute('type', 'text');
+    result.setAttribute('placeholder', 'Result');
+    educationDiv.appendChild(inputInstitution);
+    educationDiv.appendChild(courseType);
+    educationDiv.appendChild(courseName);
+    educationDiv.appendChild(result);
+    educationDiv.appendChild(deleteBtn);
+    educationWrapper.appendChild(educationDiv);
+    deleteBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      this.parentElement.remove();
+    });
+  });
+} //References - Allows multiple inputs to be appended to DOM
+
+
+var referencesWrapper = document.querySelector('.references-wrapper');
+var addReferenceBtn = document.querySelector('.add-reference-input');
+
+if (referencesWrapper) {
+  addReferenceBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    var referenceDiv = document.createElement('div');
+    referenceDiv.classList.add('reference-row');
+    var deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-row');
+    deleteBtn.innerText = '-';
+    var previousEmployer = document.createElement('input');
+    previousEmployer.id = 'previous_company_name';
+    previousEmployer.setAttribute('name', 'reference[]');
+    previousEmployer.setAttribute('type', 'text');
+    previousEmployer.setAttribute('placeholder', 'Previous Company Name');
+    var employerName = document.createElement('input');
+    employerName.id = 'employer_name';
+    employerName.setAttribute('name', 'reference[]');
+    employerName.setAttribute('type', 'text');
+    employerName.setAttribute('placeholder', 'Employer Name');
+    var employerContact = document.createElement('input');
+    employerContact.id = 'employer_contact';
+    employerContact.setAttribute('name', 'reference[]');
+    employerContact.setAttribute('type', 'text');
+    employerContact.setAttribute('placeholder', 'Employer Contact');
+    var durationWorked = document.createElement('input');
+    durationWorked.id = 'duration_worked';
+    durationWorked.setAttribute('name', 'reference[]');
+    durationWorked.setAttribute('type', 'text');
+    durationWorked.setAttribute('placeholder', 'Duration Worked');
+    referenceDiv.appendChild(previousEmployer);
+    referenceDiv.appendChild(employerName);
+    referenceDiv.appendChild(employerContact);
+    referenceDiv.appendChild(durationWorked);
+    referenceDiv.appendChild(deleteBtn);
+    referencesWrapper.appendChild(referenceDiv);
+    deleteBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      this.parentElement.remove();
+    });
+  });
+} //Benefits - Allows multiple inputs to be appended to DOM
+
+
+var benefitsWrapper = document.querySelector('.benefits-wrapper');
+var addBenefitBtn = document.querySelector('.add-benefit-input');
+
+if (benefitsWrapper) {
+  addBenefitBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log('helo');
+    var benefitDiv = document.createElement('div');
+    benefitDiv.classList.add('benefit-row');
+    var benefit = document.createElement('input');
+    benefit.id = 'benefits';
+    benefit.classList.add('benefit');
+    benefit.setAttribute('name', 'benefits[]');
+    benefit.setAttribute('type', 'text');
+    benefit.setAttribute('placeholder', 'Benefit');
+    var deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete-row');
+    deleteBtn.innerText = '-';
+    benefitDiv.appendChild(benefit);
+    benefitDiv.appendChild(deleteBtn);
+    benefitsWrapper.appendChild(benefitDiv);
+    deleteBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      this.parentElement.remove();
+    });
+  });
 }
 
 /***/ }),

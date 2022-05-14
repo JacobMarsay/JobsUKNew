@@ -133,32 +133,17 @@
             <h1>Education</h1>
             <p>Please your past education information.</p>
 
-            <div class="education_inputs">
-                <label for="place_of_institution">
-                    <input placeholder="Place of Institution" type="text" id="place_of_institution" name="place_of_institution">
-                </label>
+            <div class="education-wrapper">
+                <div class="education-row">
+                    <input id="place_of_institution" placeholder="Institution" type="text" name="place_of_institution">
+                    <input id="education_type" placeholder="Course Type" type="text" name="education_type">
+                    <input id="course_name" placeholder="Course Name" type="text" name="course_name">
+                    <input id="results" placeholder="Result" type="text" name="results">
 
-                <div class="select-wrapper">
-                    <select id="education_type" name="education_type">
-                        <option disabled selected value> -- Select Certificate -- </option>
-                        <option value="GCSE">GCSE</option>
-                        <option value="A Level">A Level</option>
-                        <option value="Diploma">Diploma</option>
-                        <option value="Foundation Level">Foundation Level</option>
-                        <option value="Bachelor Degree">Bachelor Degree</option>
-                        <option value="Masters Degree">Masters Degree</option>
-                        <option value="PHD">PHD</option>
-                        <option value="Other Education">Other</option>
-                    </select>
+                    <div class="add-button-wrapper">
+                        <button class="add-education-input">+</button>
+                    </div>
                 </div>
-
-                <label for="course_name">
-                    <input placeholder="Course Name" type="text" id="course_name" name="course_name">
-                </label>
-
-                <label for="results">
-                    <input placeholder="Results" type="text" id="results" name="results">
-                </label>
             </div>
 
             <div class="section_navigation">
@@ -195,27 +180,24 @@
             </div>
         </div>
         
-        <div class="section jobseeker-section-nine">
+        <div class="section jobseeker-section-nine references">
             <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
             <h1>References</h1>
             <p>Please enter past employment information</p>
 
-            <label for="previous_company_name">
-                <input placeholder="Previous Company Name" type="text" id="previous_company_name" name="previous_company_name">
-            </label>
+            <div class="references-wrapper">
+                <div class="reference-row">
+                    <input id="previous_company_name" placeholder="Previous Company Name" type="text" name="previous_company_name">
+                    <input id="employer_name" placeholder="Employer Name" type="text" name="employer_name">
+                    <input id="employer_contact" placeholder="Employer Contact" type="text" name="employer_contact">
+                    <input id="duration_worked" placeholder="Duration Worked" type="text" name="duration_worked">
 
-            <label for="employer_name">
-                <input placeholder="Employer Name" type="text" id="employer_name" name="employer_name">
-            </label>
+                    <div class="add-button-wrapper">
+                        <button class="add-reference-input">+</button>
+                    </div>
+                </div>
+            </div>
 
-            <label for="employer_contact">
-                <input placeholder="Employer Contact" type="text" id="employer_contact" name="employer_contact">
-            </label>
-
-            <label for="duration_worked">
-                <input placeholder="Duration Worked" type="number" id="duration_worked" name="duration_worked">
-            </label>
-           
             <div class="section_navigation">
                 <button class="btn btn-blue back jobseeker-section-nine-prev">Back</button>
                 <button type="submit" class="btn btn-blue">Register</button>

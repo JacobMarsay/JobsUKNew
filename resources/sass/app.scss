@@ -29,69 +29,81 @@ body {
     padding: 0;
 }
 
-.content_container {
+.skills-wrapper {
+	max-height: 200px;
 	overflow-y: scroll;
+	background: #E7E7E7;
+	padding: 10px 15px;
+	border-radius: 20px;
+	margin-top: 10px;
 
-	.content {
-		label {
-			width: 100%;
-			margin-bottom: 20px;
-			display: block;
-	
-			&.half-width {
-				width: calc(50% - 10px);
-			}
-	
-			input, textarea {
-				width: 100%;
-				border-radius: 20px;
-				border: none;
-				background: $input-background;
-				padding: 10px 15px;
-				font-size: 14px;
-			}
-	
-			textarea {
-				height: 200px;
-			}
+	label {
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 0;
+
+		input {
+			width: calc(20% - 20px) !important;
 		}
 
-		select {
-			width: 100%;
+		p {
+			width: calc(80% - 20px);
+			margin-top: 0;
+			margin-left: 20px;
+			font-size: 14px;
+			margin-bottom: 0 !important;
+			text-align: left;
+		}
+	}
+}
+
+.education-wrapper, .benefits-wrapper, .references-wrapper {
+
+	.education-row, .benefit-row, .reference-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
+
+		input {
+			width: calc(20% - 10px);
 			border-radius: 20px;
 			border: none;
 			background: $input-background;
 			padding: 10px 15px;
 			font-size: 14px;
+
+			&.benefit {
+				width: calc(90% - 10px);
+				margin-top: 10px;
+			}
 		}
 
-		.skills-wrapper {
-			max-height: 200px;
-			overflow-y: scroll;
-			background: #E7E7E7;
-			padding: 10px 15px;
-			border-radius: 20px;
-			margin-top: 10px;
-	
-			label {
-				display: flex;
-				flex-flow: row wrap;
-				align-items: center;
-				justify-content: center;
-				margin-bottom: 0;
-				max-width: 400px;
-	
-				input {
-					width: calc(20% - 20px);
-				}
-	
-				p {
-					width: calc(80% - 20px);
-					margin-top: 0;
-					margin-left: 20px;
-					font-size: 14px;
-				}
+		.add-button-wrapper {	
+			button {
+				margin-top: 0;
+				border: none;
+				appearance: none;
+				background: $primary-colour;
+				border-radius: 10px;
+				padding: 4px 12px;
+				color: #FFF;
+				font-size: 16px;
+				font-weight: bold;
 			}
+		}
+
+		.delete-row {
+			margin-top: 0;
+			border: none;
+			appearance: none;
+			background: $status-colour-declined;
+			border-radius: 10px;
+			padding: 4px 12px;
+			color: #FFF;
+			font-size: 16px;
+			font-weight: bold;
 		}
 	}
 }

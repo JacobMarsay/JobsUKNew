@@ -48,14 +48,19 @@
 
     <div class="">
         <h1>Employment Benefits</h1>
-        <label for="benefits">
-                <input placeholder="Benefits" type="text" id="benefits" name="benefits">
-        </label>
-    </div>
 
-    <div class="button-wrapper">
-        <button type="submit" class="btn btn-blue">Create</button>
+        <div class="benefits-wrapper">
+            <div class="benefit-row">
+                <input class="benefit" id="benefits" placeholder="Benefit" type="text" name="benefits[]">
+
+                <div class="add-button-wrapper">
+                    <button class="add-benefit-input">+</button>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-blue">Submit</button>
     </div>
+    
 </form>
 
 @endsection 

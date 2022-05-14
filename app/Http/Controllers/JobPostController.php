@@ -62,7 +62,6 @@ class JobPostController extends Controller
             'salary' => 'required',
             'commute_type' => 'required',
             'contract_type' => 'required',
-            //'skill_name' => 'required',
             'benefits' => 'required',
             'skill' => 'required|array|min:2',
         ]);
@@ -84,9 +83,15 @@ class JobPostController extends Controller
 
         $jobPost->skills()->attach($request->skill);
 
-        $benefits = new Benefits;
-        $benefits->benefits = $request->benefits;
-        $jobPost->benefits()->save($benefits);
+        // $benefits = new Benefits;
+        // $benefits->benefits = $request->benefits;
+        // $jobPost->benefits()->save($benefits);
+        $benefits = $request->benefits;
+        
+        foreach($benefits as $benefit){
+            $input['benefits'] = $benefit;
+            $jobPost->benefits()->create($input);
+        }
 
         return redirect('/posts')->with('success', 'Job Post added Successfully.');
         

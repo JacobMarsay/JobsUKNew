@@ -755,10 +755,15 @@ a {
 
 .page_single_content {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  flex-flow: column;
   margin-top: 35px;
   height: calc(100vh - 60px);
+}
+@media only screen and (min-width: 900px) {
+  .page_single_content {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
 }
 .page_single_content .page_description {
   background-color: #ffffff;
@@ -778,11 +783,18 @@ a {
   color: #484848;
 }
 .page_single_content .page_description.left {
-  width: calc(60% - 10px);
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-content: flex-start;
+  margin-bottom: 30px;
+}
+@media only screen and (min-width: 900px) {
+  .page_single_content .page_description.left {
+    width: calc(60% - 10px);
+    margin-bottom: 0;
+  }
 }
 .page_single_content .page_description.left ul li {
   font-size: 11px;
@@ -814,8 +826,13 @@ a {
   margin-bottom: 30px;
 }
 .page_single_content .page_description.right {
-  width: calc(40% - 10px);
+  width: 100%;
   position: relative;
+}
+@media only screen and (min-width: 900px) {
+  .page_single_content .page_description.right {
+    width: calc(40% - 10px);
+  }
 }
 .page_single_content .page_description.right .list {
   display: flex;
@@ -832,10 +849,17 @@ a {
   flex-flow: row wrap;
   justify-content: space-between;
 }
-.page_single_content .page_description.right a {
-  position: absolute;
-  bottom: 35px;
-  right: 35px;
+.page_single_content .page_description.right .apply-button {
+  margin-top: 30px;
+  text-align: right;
+}
+@media only screen and (min-width: 900px) {
+  .page_single_content .page_description.right .apply-button {
+    margin-top: 0;
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+  }
 }
 
 .job-post-single h1 {
@@ -1166,37 +1190,7 @@ body {
   padding: 0;
 }
 
-.content_container {
-  overflow-y: scroll;
-}
-.content_container .content label {
-  width: 100%;
-  margin-bottom: 20px;
-  display: block;
-}
-.content_container .content label.half-width {
-  width: calc(50% - 10px);
-}
-.content_container .content label input, .content_container .content label textarea {
-  width: 100%;
-  border-radius: 20px;
-  border: none;
-  background: #E7E7E7;
-  padding: 10px 15px;
-  font-size: 14px;
-}
-.content_container .content label textarea {
-  height: 200px;
-}
-.content_container .content select {
-  width: 100%;
-  border-radius: 20px;
-  border: none;
-  background: #E7E7E7;
-  padding: 10px 15px;
-  font-size: 14px;
-}
-.content_container .content .skills-wrapper {
+.skills-wrapper {
   max-height: 200px;
   overflow-y: scroll;
   background: #E7E7E7;
@@ -1204,20 +1198,65 @@ body {
   border-radius: 20px;
   margin-top: 10px;
 }
-.content_container .content .skills-wrapper label {
-  display: flex;
-  flex-flow: row wrap;
+.skills-wrapper label {
+  display: flex !important;
   align-items: center;
   justify-content: center;
   margin-bottom: 0;
-  max-width: 400px;
 }
-.content_container .content .skills-wrapper label input {
-  width: calc(20% - 20px);
+.skills-wrapper label input {
+  width: calc(20% - 20px) !important;
 }
-.content_container .content .skills-wrapper label p {
+.skills-wrapper label p {
   width: calc(80% - 20px);
   margin-top: 0;
   margin-left: 20px;
   font-size: 14px;
+  margin-bottom: 0 !important;
+  text-align: left;
+}
+
+.education-wrapper .education-row, .education-wrapper .benefit-row, .education-wrapper .reference-row, .benefits-wrapper .education-row, .benefits-wrapper .benefit-row, .benefits-wrapper .reference-row, .references-wrapper .education-row, .references-wrapper .benefit-row, .references-wrapper .reference-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.education-wrapper .education-row input, .education-wrapper .benefit-row input, .education-wrapper .reference-row input, .benefits-wrapper .education-row input, .benefits-wrapper .benefit-row input, .benefits-wrapper .reference-row input, .references-wrapper .education-row input, .references-wrapper .benefit-row input, .references-wrapper .reference-row input {
+  width: calc(20% - 10px);
+  border-radius: 20px;
+  border: none;
+  background: #E7E7E7;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+.education-wrapper .education-row input.benefit, .education-wrapper .benefit-row input.benefit, .education-wrapper .reference-row input.benefit, .benefits-wrapper .education-row input.benefit, .benefits-wrapper .benefit-row input.benefit, .benefits-wrapper .reference-row input.benefit, .references-wrapper .education-row input.benefit, .references-wrapper .benefit-row input.benefit, .references-wrapper .reference-row input.benefit {
+  width: calc(90% - 10px);
+  margin-top: 10px;
+}
+.education-wrapper .education-row .add-button-wrapper button, .education-wrapper .benefit-row .add-button-wrapper button, .education-wrapper .reference-row .add-button-wrapper button, .benefits-wrapper .education-row .add-button-wrapper button, .benefits-wrapper .benefit-row .add-button-wrapper button, .benefits-wrapper .reference-row .add-button-wrapper button, .references-wrapper .education-row .add-button-wrapper button, .references-wrapper .benefit-row .add-button-wrapper button, .references-wrapper .reference-row .add-button-wrapper button {
+  margin-top: 0;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #0792A5;
+  border-radius: 10px;
+  padding: 4px 12px;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+}
+.education-wrapper .education-row .delete-row, .education-wrapper .benefit-row .delete-row, .education-wrapper .reference-row .delete-row, .benefits-wrapper .education-row .delete-row, .benefits-wrapper .benefit-row .delete-row, .benefits-wrapper .reference-row .delete-row, .references-wrapper .education-row .delete-row, .references-wrapper .benefit-row .delete-row, .references-wrapper .reference-row .delete-row {
+  margin-top: 0;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: #E30000;
+  border-radius: 10px;
+  padding: 4px 12px;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
 }

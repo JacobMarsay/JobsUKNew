@@ -16,6 +16,13 @@ class CreateBenefitsTable extends Migration
         Schema::create('benefits', function (Blueprint $table) {
             $table->increments('id');
             $table->string('benefits');
+
+            $table->integer('job_post_id')->unsigned();
+            $table->foreign('job_post_id')
+                ->references('id')
+                ->on('jobpost')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

@@ -84,11 +84,12 @@ class RegisterController extends Controller
             'house_number'=> 'required',
             'postcode' => 'required',
             'city' => 'required',
+            'county' => 'required',
             'place_of_institution' => 'required',
-            'education_type' => 'required',
             'course_name' => 'required',
+            'education_type' => 'required',
             'results' => 'required',
-            'skill_name' => 'required',
+            'skill' => 'required',
             'previous_company_name' => 'required',
             'employer_name' => 'required',
             'employer_contact' => 'required',
@@ -121,6 +122,9 @@ class RegisterController extends Controller
         $application->years_of_experience = $request->years_of_experience;
         $application->hobby_description = $request->hobby_description;
         $jobSeeker->application()->save($application);
+
+
+        $application->skills()->attach($request->skill);
         
         $education = new Education;
         $education->place_of_institution = $request->place_of_institution;
@@ -128,13 +132,6 @@ class RegisterController extends Controller
         $education->course_name = $request->course_name;
         $education->results = $request->results;
         $application->education()->save($education);
-
-        $data = $request->input('skill_name');
-        
-        $skills = Skills::select('skills.id')
-        ->where('skills.skill_name', $data)->get();
-        
-        $application->skills()->attach($skills); 
 
         $references = new Reference;
         $references->previous_company_name = $request->previous_company_name;

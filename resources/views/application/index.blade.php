@@ -82,7 +82,9 @@
             @endforeach
         </ul>
         <p>Years Of Experience: {{$application->years_of_experience}}</p>
-        <a class="btn btn-blue" href="{{ route('application.edit', $jobSeeker->id, $address->id, $application->id, $certificate->id, $skill->id, $reference->id) }}">Edit Application</a>
+        <div class="apply-button">
+            <a class="btn btn-blue" href="{{ route('application.edit', $jobSeeker->id, $address->id, $application->id, $certificate->id, $skill->id, $reference->id) }}">Edit Application</a>
+        </div>
     </div>
 </div>
 
