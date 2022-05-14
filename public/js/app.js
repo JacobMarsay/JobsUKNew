@@ -2164,6 +2164,199 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var companySections = document.querySelectorAll('.company-reg-form .section');
+var jobRegSections = document.querySelectorAll('.registration-form .section');
+var jobSectionOne = document.querySelector('.jobseeker-section-one');
+var jobSectionTwo = document.querySelector('.jobseeker-section-two');
+var jobSectionThree = document.querySelector('.jobseeker-section-three');
+var jobSectionFour = document.querySelector('.jobseeker-section-four');
+var jobSectionFive = document.querySelector('.jobseeker-section-five');
+var jobSectionSix = document.querySelector('.jobseeker-section-six');
+var jobSectionSeven = document.querySelector('.jobseeker-section-seven');
+var jobSectionEight = document.querySelector('.jobseeker-section-eight');
+var jobSectionNine = document.querySelector('.jobseeker-section-nine');
+var jobSectionOneNext = document.querySelector('.jobseeker-section-one-next');
+var jobSectionTwoNext = document.querySelector('.jobseeker-section-two-next');
+var jobSectionThreeNext = document.querySelector('.jobseeker-section-three-next');
+var jobSectionFourNext = document.querySelector('.jobseeker-section-four-next');
+var jobSectionFiveNext = document.querySelector('.jobseeker-section-five-next');
+var jobSectionSixNext = document.querySelector('.jobseeker-section-six-next');
+var jobSectionSevenNext = document.querySelector('.jobseeker-section-seven-next');
+var jobSectionEightNext = document.querySelector('.jobseeker-section-eight-next');
+var jobSectionTwoPrev = document.querySelector('.jobseeker-section-two-prev');
+var jobSectionThreePrev = document.querySelector('.jobseeker-section-three-prev');
+var jobSectionFourPrev = document.querySelector('.jobseeker-section-four-prev');
+var jobSectionFivePrev = document.querySelector('.jobseeker-section-five-prev');
+var jobSectionSixPrev = document.querySelector('.jobseeker-section-six-prev');
+var jobSectionSevenPrev = document.querySelector('.jobseeker-section-seven-prev');
+var jobSectionEightPrev = document.querySelector('.jobseeker-section-eight-prev');
+var jobSectionNinePrev = document.querySelector('.jobseeker-section-nine-prev');
+var companySectionOne = document.querySelector('.company-section-one');
+var companySectionTwo = document.querySelector('.company-section-two');
+var companySectionThree = document.querySelector('.company-section-three');
+var companySectionOneNext = document.querySelector('.company-section-one-next');
+var companySectionTwoNext = document.querySelector('.company-section-two-next');
+var companySectionTwoPrev = document.querySelector('.company-section-two-prev');
+var companySectionThreePrev = document.querySelector('.company-section-three-prev'); //Section numbers for registration forms
+
+if (companySections) {
+  companySections.forEach(function (value, i) {
+    var total = companySections.length;
+    var currentCompanySection = value.querySelector('.numberCompany');
+    var totalCompanySections = value.querySelector('.totalCompany');
+    currentCompanySection.innerHTML += i + 1;
+    totalCompanySections.innerHTML += total;
+  });
+}
+
+if (document.querySelector('body').classList.contains("jobseekerReg")) {
+  jobRegSections.forEach(function (value, i) {
+    var total = jobRegSections.length;
+    var currentSection = value.querySelector('.currentJobSection');
+    var totalSections = value.querySelector('.totalJobSections');
+    currentSection.innerHTML += i + 1;
+    totalSections.innerHTML += total;
+  });
+} //Company form navigation
+
+
+if (companySectionOne) {
+  companySectionOneNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    companySectionOne.style.display = "none";
+    companySectionTwo.style.display = "block";
+  });
+}
+
+if (companySectionTwo) {
+  companySectionTwoNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    companySectionTwo.style.display = "none";
+    companySectionThree.style.display = "block";
+  });
+  companySectionTwoPrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    companySectionTwo.style.display = "none";
+    companySectionOne.style.display = "block";
+  });
+}
+
+if (companySectionThree) {
+  companySectionThreePrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    companySectionThree.style.display = "none";
+    companySectionTwo.style.display = "block";
+  });
+} //JobSeeker form navigation
+
+
+if (jobSectionOne) {
+  jobSectionOneNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionOne.style.display = "none";
+    jobSectionTwo.style.display = "block";
+  });
+}
+
+if (jobSectionTwo) {
+  jobSectionTwoNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionTwo.style.display = "none";
+    jobSectionThree.style.display = "block";
+  });
+  jobSectionTwoPrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionTwo.style.display = "none";
+    jobSectionOne.style.display = "block";
+  });
+}
+
+if (jobSectionThree) {
+  jobSectionThreeNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionThree.style.display = "none";
+    jobSectionFour.style.display = "block";
+  });
+  jobSectionThreePrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionThree.style.display = "none";
+    jobSectionTwo.style.display = "block";
+  });
+}
+
+if (jobSectionFour) {
+  jobSectionFourNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionFour.style.display = "none";
+    jobSectionFive.style.display = "block";
+  });
+  jobSectionFourPrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionFour.style.display = "none";
+    jobSectionThree.style.display = "block";
+  });
+}
+
+if (jobSectionFive) {
+  jobSectionFiveNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionFive.style.display = "none";
+    jobSectionSix.style.display = "block";
+  });
+  jobSectionFivePrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionFive.style.display = "none";
+    jobSectionFour.style.display = "block";
+  });
+}
+
+if (jobSectionSix) {
+  jobSectionSixNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionSix.style.display = "none";
+    jobSectionSeven.style.display = "block";
+  });
+  jobSectionSixPrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionSix.style.display = "none";
+    jobSectionFive.style.display = "block";
+  });
+}
+
+if (jobSectionSeven) {
+  jobSectionSevenNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionSeven.style.display = "none";
+    jobSectionEight.style.display = "block";
+  });
+  jobSectionSevenPrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionSeven.style.display = "none";
+    jobSectionSix.style.display = "block";
+  });
+}
+
+if (jobSectionEight) {
+  jobSectionEightNext.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionEight.style.display = "none";
+    jobSectionNine.style.display = "block";
+  });
+  jobSectionEightPrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionEight.style.display = "none";
+    jobSectionSeven.style.display = "block";
+  });
+}
+
+if (jobSectionNine) {
+  jobSectionNinePrev.addEventListener('click', function (e) {
+    e.preventDefault();
+    jobSectionNine.style.display = "none";
+    jobSectionEight.style.display = "block";
+  });
+}
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

@@ -1,41 +1,16 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-
-
-
-.background_container{
-    position:fixed;
-    padding:0;
-    margin:0;
-
-    top:0;
-    left:0;
-
-    width: 100%;
-    height: 100%;
-
-}
-
-.background{
-    position: relative;
-}
-
-.background_logo_top{
-    position: fixed;
-    top: 0px;
-    left:0px;
-    transform: translate(-25%, -25%);
+.background-logo {
+    position: absolute;
+    overflow: hidden;
     
-}
-.background_logo_bottom{
-    position: fixed;
-    bottom: -120px;
-    right: -40px;
-    transform: translate(5%, 5%) rotate(60deg);
-    
+    &__top {
+        top: -100px;
+        left: -100px;
+    }
+
+    &__bottom {
+        bottom: -150px;
+        right: -100px;
+        transform: rotate(90deg);
+    }
 
 }

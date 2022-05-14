@@ -22,7 +22,7 @@ use App\Http\Controllers\LogoutController;
 */
 
 //Get login page
-Route::get('/', [LoginController::class, "index"]);
+Route::get('/', [LoginController::class, "index"])->name('login');
 Route::post('/', [LoginController::class, 'authenticate'])->name('authenticate');
 
 //show registration index page

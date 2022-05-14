@@ -16,22 +16,18 @@ class SearchController extends Controller
 {
     public function showApplicants(JobPost $jobPost){
 
-        $jobPostId = session('jobPostId');
-        var_dump($jobPostId);
-
-
+        $jobPostId = session('jobPost');
+       
         $jobPostSkills = Skills::join('job_post_skills', 'skills.id', '=', 'job_post_skills.skills_id')
         ->where('job_post_skills.job_post_id', $jobPostId)->get();
 
-        var_dump($jobPostId);
-        
+        foreach($jobPostSkills as $skill) {
+            $skillsOnJobPost[] = $skill->id;
 
-        foreach($jobPostSkills as $test) {
-            $skillsOnJobPost[] = $test->id;
         }
 
-        
+        print_r($skillsOnJobPost);
 
-        return view('search/applicants')->with(['test' => $jobPost]);
+        return view('search/applicants')->with(['skill' => $jobPost]);
     }
 }

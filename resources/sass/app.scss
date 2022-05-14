@@ -8,5 +8,90 @@
 @import 'layout/navbar';
 @import 'pages/dashboard';
 @import 'pages/page-single';
+@import 'pages/company-posts';
+@import 'pages/company-post-show';
+@import 'pages/registration';
 @import 'components/post-cards';
 
+.flex {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+body {
+	display: flex;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.content_container {
+	overflow-y: scroll;
+
+	.content {
+		label {
+			width: 100%;
+			margin-bottom: 20px;
+			display: block;
+	
+			&.half-width {
+				width: calc(50% - 10px);
+			}
+	
+			input, textarea {
+				width: 100%;
+				border-radius: 20px;
+				border: none;
+				background: $input-background;
+				padding: 10px 15px;
+				font-size: 14px;
+			}
+	
+			textarea {
+				height: 200px;
+			}
+		}
+
+		select {
+			width: 100%;
+			border-radius: 20px;
+			border: none;
+			background: $input-background;
+			padding: 10px 15px;
+			font-size: 14px;
+		}
+
+		.skills-wrapper {
+			max-height: 200px;
+			overflow-y: scroll;
+			background: #E7E7E7;
+			padding: 10px 15px;
+			border-radius: 20px;
+			margin-top: 10px;
+	
+			label {
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 0;
+				max-width: 400px;
+	
+				input {
+					width: calc(20% - 20px);
+				}
+	
+				p {
+					width: calc(80% - 20px);
+					margin-top: 0;
+					margin-left: 20px;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}

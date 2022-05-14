@@ -13,13 +13,17 @@
 }
 
 .content {
-    margin-left: 200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+	align-items: center;
     padding: 1px 16px;
-    height: 1000px;
+    height: 100vh;
   }
 
   .page_title{
     text-align: center;
+    width: 100%;
 }
 
 

@@ -1,39 +1,57 @@
 @import '../components/text.scss';
 
-
-.form_container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 80px;
-    border-radius: 20px;
-    p{
-        margin-top: 10px;
-    }
-}
-
-
-.login_input{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: 20px;
-    box-shadow: 3px 4px ;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+.login {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: $primary-colour;
 
-    svg {
-        width: 20px;
-        height: 20px;
-        margin-left: 10px;
+    .form_container {
+        box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.7);
+        padding: 40px;
+        border-radius: 20px;
+        width: 350px;
+        z-index: 1;
+
+        @media only screen and (min-width: 600px) {
+            width: 450px;
+            padding: 80px;
+        }
+
+        .title, p {
+            text-align: center;
+        }
+        
+        p {
+            margin-top: 10px;
+        }
+
+        .login_input {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 3px 4px ;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
+            display: flex;
+        
+            svg {
+                width: 20px;
+                height: 20px;
+                margin-left: 10px;
+            }
+        
+            input{
+                display: inline;
+                border:none;
+                margin-left: 10px;
+            }
+        
+        }
     }
-
-    input{
-        display: inline;
-        border:none;
-        margin-left: 10px;
-    }
-
 }

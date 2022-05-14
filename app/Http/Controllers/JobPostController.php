@@ -10,6 +10,7 @@ use App\Models\Company;
 use App\Models\Address;
 use App\Models\Skills;
 use App\Models\Benefits;
+use Session;
 
 class JobPostController extends Controller
 {
@@ -43,6 +44,7 @@ class JobPostController extends Controller
     
         $skills = Skills::all();
         return view('posts/create')->with('skills', $skills);
+        //return view('posts/create', ['skills'=>$skills]);
 
     }
 
@@ -60,8 +62,9 @@ class JobPostController extends Controller
             'salary' => 'required',
             'commute_type' => 'required',
             'contract_type' => 'required',
-            'skill_name' => 'required',
+            //'skill_name' => 'required',
             'benefits' => 'required',
+            'skill' => 'required|array|min:2',
         ]);
 
         $jobPost = new Jobpost;
@@ -73,10 +76,13 @@ class JobPostController extends Controller
         $jobPost->company_id = $company_id;
         $jobPost->save();
 
-        $data = $request->input('skill_name');
-        $skills = Skills::select('skills.id')
-        ->where('skills.skill_name', $data)->get();
-        $jobPost->skills()->attach($skills); 
+        //$data = $request->input('skill_name');
+
+        //$skills = Skills::select('skills.id')
+        //->where('skills.skill_name', $data)->get();
+        //$jobPost->skills()->attach($skills); 
+
+        $jobPost->skills()->attach($request->skill);
 
         $benefits = new Benefits;
         $benefits->benefits = $request->benefits;
@@ -101,6 +107,8 @@ class JobPostController extends Controller
         $company = Company::join('users', 'users.id', '=', 'company.user_id')
             ->where('users.id', $user_id)->first();
         
+        Session::put('jobPost', $id);
+        
 
         return view('posts.show')->with('jobPost', $jobPost)->with('benefits', $benefits)->with('skills', $skills)->with('address', $address)->with('user', $user)->with('company', $company);
 
@@ -109,9 +117,9 @@ class JobPostController extends Controller
     public function edit($id){
         $jobPost = JobPost::find($id);
         $benefits = Benefits::find($id);
-        
+        $skills = Skills::find($id);
        
-        return view('posts.edit')->with('jobPost', $jobPost)->with('benefits', $benefits);
+        return view('posts.edit')->with('jobPost', $jobPost)->with('benefits', $benefits)->with('skills', $skills);
     }
     
     public function update(Request $request, $id) {

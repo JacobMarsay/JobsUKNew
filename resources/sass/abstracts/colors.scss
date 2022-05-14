@@ -10,6 +10,7 @@ $status-colour-interview:#C4E300;
 $status-colour-pending:#E38800;
 $status-colour-declined:#E30000;
 $check-list-icon:#009521;
+$input-background: #E7E7E7;
 
 //Darkmode Colours
 $dm-primary-colour:#5F5F5F;
@@ -77,23 +78,8 @@ li{
     }
 }
 
-.navbar{
-    background-color: $secondary-colour;
-    box-shadow: 10px 10px 5px rgba(126, 126, 126, 0.404);
-    
-
-    a{
-    color: $text-colour;
-    }
-}
-
-.navbar a:hover {
-    background-color: $primary-colour;
-    color: $secondary-colour;
-}
-
 .content_container {
-      background-color: $background-colour;
+      width: 100%;
 }
 
 .items_section:first-child{

@@ -1,91 +1,228 @@
-<h1>JobSeeker Registration</h1>
-<form class="" action="{{ route('storeJobSeekerAccount') }}" method="POST">
-    @csrf
-    <h1>Personal Details</h1>
-    <p>Please enter your personal details.</p>
-    <label for="first_name">First Name:<label>
-    <input type="text" id="first_name" name="first_name">
-    <label for="last_name">Last Name:<label>
-    <input type="text" id="last_name" name="last_name">
-    <label for="contact_number">Phone Number:<label>
-    <input type="tel" id="contact_number" name="contact_number">
-    <label for="email">Email Address:<label>
-    <input type="email" id="email" name="email">
-    <label for="password">Password:<label>
-    <input type="password" id="password" name="password">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <title>Job Seeker Registration</title>
+</head>
+<body class="registration jobseekerReg">
+    @include('parts.background')
+    <form class="registration-form" action="{{ route('storeJobSeekerAccount') }}" method="POST">
+        @csrf
+        <div class="section jobseeker-section-one">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Personal Details</h1>
+            <p>Please enter your personal details.</p>
 
-    <h1>Address Details</h1>
-    <p>Please enter your address details.</p>
-    <label for="street_name">Street Name:<label>
-    <input type="text" id="street_name" name="street_name">
-    <label for="house_number">House/Flat Number:<label>
-    <input type="text" id="house_number" name="house_number">
-    <label for="postcode">Postcode:<label>
-    <input type="text" id="postcode" name="postcode">
-    <label for="city">City:<label>
-    <input type="text" id="city" name="city">
-    <label for="county">County:<label>
-    <input type="text" id="county" name="county">
-
-    <h1>Career Type</h1>
-    <p>Please enter the type of Job you would like to apply for.</p>
-    <label for="career_type">Career Type:<label>
-    <input type="text" id="career_type" name="career_type">
-
-    <h1>Skill Set</h1>
-    <p>Please select your soft and technical skills.</p>
+            <div class="flex">
+                <label class="half-width" for="first_name">
+                    <input placeholder="First Name" type="text" id="first_name" name="first_name">
+                </label>
     
-    <select id="skill_name" name="skill_name">
-    @foreach($skills as $skill)
-        <option value="{{ $skill->skill_name }}">{{ $skill->skill_name }}</option>
-    @endforeach
-    </select>
+                <label class="half-width" for="last_name">
+                    <input placeholder="Last Name" type="text" id="last_name" name="last_name">
+                </label>
+            </div>
 
-    <h1>Years of Experience</h1>
-    <p>How many years of experience have you worked in your profession?</p>
-    <label for="years_of_experience">Years of Experience:<label>
-    <input type="number" id="years_of_experience" name="years_of_experience">
+            <label for="contact_number">
+                <input placeholder="Contact Number" type="tel" id="contact_number" name="contact_number">
+            </label>
 
-    <h1>Education</h1>
-    <p>Please your past education information.</p>
-    <label for="place_of_institution">Institution:<label>
-    <input type="text" id="place_of_institution" name="place_of_institution">
-    <label for="education_type">Certificate Type:<label>
-    <select id="education_type" name="education_type" size="2">
-        <option value="GCSE">GCSE</option>
-        <option value="A Level">A Level</option>
-        <option value="Diploma">Diploma</option>
-        <option value="Foundation Level">Foundation Level</option>
-        <option value="Bachelor Degree">Bachelor Degree</option>
-        <option value="Masters Degree">Masters Degree</option>
-        <option value="PHD">PHD</option>
-        <option value="Other Education">Other</option>
-    </select>
-    <label for="course_name">Course:<label>
-    <input type="text" id="course_name" name="course_name">
-    <label for="results">Grades:<label>
-    <input type="text" id="results" name="results">
+            <label for="email">
+                <input placeholder="Email Address" type="email" id="email" name="email">
+            </label>
 
-    <h1>Biography</h1>
-    <p>Please write your biography here. NOTE: This is the main part of your application form so please be descriptive. Think about past achievements and why you are great at what you do.</p>
-    <label for="biography">Biography:<label>
-    <textarea id="biography" name="biography"></textarea>
-    
-    <h1>Hobbies & Activities</h1>
-    <p>Do you have any hobbies, or participate in any regular activities? Please be descriptive as this will help the employer to get to know you.</p>
-    <label for="hobby_description">Hobbies & Activities:<label>
-    <textarea id="hobby_description" name="hobby_description"></textarea>
-    
-    <h1>References</h1>
-    <p>Please enter past employment information</p>
-    <label for="previous_company_name">Company Name:<label>
-    <input type="text" id="previous_company_name" name="previous_company_name">
-    <label for="employer_name">Employer Name:<label>
-    <input type="text" id="employer_name" name="employer_name">
-    <label for="employer_contact">Employers Contact Details:<label>
-    <input type="text" id="employer_contact" name="employer_contact">
-    <label for="duration_worked">Duration Worked:<label>
-    <input type="number" id="duration_worked" name="duration_worked">
+            <label for="password">
+                <input placeholder="Password" type="password" id="password" name="password">
+            </label>
 
-    <button type="submit" class="btn btn-blue">Register</button>
-</form>
+            <div class="section_navigation">
+                <a href="/users/registration-index" class="btn btn-blue prev">Back</a>
+                <button class="btn btn-blue next jobseeker-section-one-next">Next</button>
+            </div>
+        </div>
+
+        <div class="section jobseeker-section-two">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Address Details</h1>
+            <p>Please enter your address details.</p>
+
+            <label for="street_name">
+                <input placeholder="Street Name" type="text" id="street_name" name="street_name">
+            </label>
+
+            <label for="house_number">
+                <input placeholder="House Number" type="text" id="house_number" name="house_number">
+            </label>
+
+            <label for="postcode">
+                <input placeholder="Postcode" type="text" id="postcode" name="postcode">
+            </label>
+
+            <label for="city">
+                <input placeholder="City" type="text" id="city" name="city">
+            </label>
+            
+            <label for="county">
+                <input placeholder="County" type="text" id="county" name="county">
+            </label>
+
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-two-prev">Back</button>
+                <button class="btn btn-blue next jobseeker-section-two-next">Next</button>
+            </div>
+        </div>
+
+        <div class="section jobseeker-section-three">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Career Type</h1>
+            <p>Please enter the type of Job you would like to apply for.</p>
+
+            <label for="career_type">
+                <input type="text" id="career_type" name="career_type">
+            </label>
+
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-three-prev">Back</button>
+                <button class="btn btn-blue next jobseeker-section-three-next">Next</button>
+            </div>
+        </div>
+
+        <div class="section jobseeker-section-four">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Skill Set</h1>
+            <p>Please select your soft and technical skills.</p>
+
+            
+            <div class="skills-wrapper">
+                @foreach($skills as $skill)
+                    <div class="skill-list">
+                        <label for="skillCheck{{$skill->skill_name}}">
+                            <input class="skill-input" id="skillCheck{{$skill->id}}" type="checkbox" value="{{$skill->id}}" name='skill[]'/>
+                            <p class="skill-name">{{$skill->skill_name}}</p>
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-four-prev">Back</button>
+                <button class="btn btn-blue next jobseeker-section-four-next">Next</button>
+            </div>
+        </div>
+
+        <div class="section jobseeker-section-five">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Years of Experience</h1>
+            <p>How many years of experience have you worked in your profession?</p>
+
+            <label for="years_of_experience">
+                <input placeholder="Years of Experience" type="number" id="years_of_experience" name="years_of_experience">
+            </label>
+
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-five-prev">Back</button>
+                <button class="btn btn-blue next jobseeker-section-five-next">Next</button>
+            </div>
+        </div>
+
+        <div class="section education jobseeker-section-six">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Education</h1>
+            <p>Please your past education information.</p>
+
+            <div class="education_inputs">
+                <label for="place_of_institution">
+                    <input placeholder="Place of Institution" type="text" id="place_of_institution" name="place_of_institution">
+                </label>
+
+                <div class="select-wrapper">
+                    <select id="education_type" name="education_type">
+                        <option disabled selected value> -- Select Certificate -- </option>
+                        <option value="GCSE">GCSE</option>
+                        <option value="A Level">A Level</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Foundation Level">Foundation Level</option>
+                        <option value="Bachelor Degree">Bachelor Degree</option>
+                        <option value="Masters Degree">Masters Degree</option>
+                        <option value="PHD">PHD</option>
+                        <option value="Other Education">Other</option>
+                    </select>
+                </div>
+
+                <label for="course_name">
+                    <input placeholder="Course Name" type="text" id="course_name" name="course_name">
+                </label>
+
+                <label for="results">
+                    <input placeholder="Results" type="text" id="results" name="results">
+                </label>
+            </div>
+
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-six-prev">Back</button>
+                <button class="btn btn-blue next jobseeker-section-six-next">Next</button>
+            </div>
+        </div>
+
+        <div class="section jobseeker-section-seven">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Biography</h1>
+            <p>Please write your biography here. NOTE: This is the main part of your application form so please be descriptive. Think about past achievements and why you are great at what you do.</p>
+            <label for="biography">
+                <textarea placeholder="Biography" id="biography" name="biography"></textarea>
+            </label>
+
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-seven-prev">Back</button>
+                <button class="btn btn-blue next jobseeker-section-seven-next">Next</button>
+            </div>
+        </div>
+
+        <div class="section jobseeker-section-eight">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>Hobbies & Activities</h1>
+            <p>Do you have any hobbies, or participate in any regular activities? Please be descriptive as this will help the employer to get to know you.</p>
+            <label for="hobby_description">
+                <textarea placeholder="Hobbies & Activities" id="hobby_description" name="hobby_description"></textarea>
+            </label>
+
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-eight-prev">Back</button>
+                <button class="btn btn-blue next jobseeker-section-eight-next">Next</button>
+            </div>
+        </div>
+        
+        <div class="section jobseeker-section-nine">
+            <div class="section-number">Section <span class="currentJobSection"></span>/<span class="totalJobSections"></div>
+            <h1>References</h1>
+            <p>Please enter past employment information</p>
+
+            <label for="previous_company_name">
+                <input placeholder="Previous Company Name" type="text" id="previous_company_name" name="previous_company_name">
+            </label>
+
+            <label for="employer_name">
+                <input placeholder="Employer Name" type="text" id="employer_name" name="employer_name">
+            </label>
+
+            <label for="employer_contact">
+                <input placeholder="Employer Contact" type="text" id="employer_contact" name="employer_contact">
+            </label>
+
+            <label for="duration_worked">
+                <input placeholder="Duration Worked" type="number" id="duration_worked" name="duration_worked">
+            </label>
+           
+            <div class="section_navigation">
+                <button class="btn btn-blue back jobseeker-section-nine-prev">Back</button>
+                <button type="submit" class="btn btn-blue">Register</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+<script src="{{ asset('js/app.js')}}"></script>
+</html>

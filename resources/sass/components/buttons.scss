@@ -5,3 +5,22 @@
     border: none;
     margin-bottom: 10px;
 }
+
+.btn {
+    padding: 10px 40px;
+    border-radius: 20px;
+    outline: none;
+    appearance: none;
+    border: none;
+    font-size: 14px;
+
+    @media only screen and (min-width: 600px) {
+        font-size: 18px;
+        padding: 10px 50px;
+    }
+
+    &-blue {
+        color: $secondary-colour;
+        background-color: $primary-colour;
+    }
+}

@@ -1,0 +1,125 @@
+.content {
+	display: block;
+}
+
+.company-show {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		margin-top: 30px;
+		height: calc(100vh - 60px);
+
+		h2 {
+			text-align: center;
+			padding: 10px;
+			border-top: 1px solid #000;
+			border-bottom: 1px solid #000;
+			font-size: 14px;
+		}
+
+		.left, .right {
+			background-color: $secondary-colour;
+			border-radius: 20px;
+			padding: 35px;
+			box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.7);
+
+			.section {
+				margin-bottom: 40px;
+			}
+		}
+
+		.left {
+			width: 100%;
+			margin-bottom: 30px;
+
+			@media only screen and (min-width: 900px) {
+				width: calc(60% - 10px);
+				margin-bottom: 0;
+			}
+
+			.header {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-between;
+				width: 100%;
+				margin-bottom: 40px;
+
+				.address {
+					li {
+						margin-top: 0;
+					}
+				}
+
+				li {
+					display: flex;
+
+					span {
+						&:first-of-type {
+							margin-right: 5px;
+						}
+					}
+
+					&.email, &.number {
+						span {
+							svg {
+								width: 20px;
+							}
+						}
+					}
+				}
+
+				.title, .name {
+					font-family: "Montserrat";
+					font-weight: bold;
+				}
+				
+				.title {
+					color: $heading-colour;
+					font-size: 30px;
+				}
+
+				.name {
+					color: $heading-colour;
+					font-size: 14px;
+				}
+			}
+		}
+
+		.right {
+			width: 100%;
+			display: flex;
+			flex-flow: column;
+
+			@media only screen and (min-width: 900px) {
+				width: calc(40% - 10px);
+				margin-bottom: 0;
+			}
+
+			.controls-wrapper {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-between;
+				margin-top: auto;
+			}
+
+			.contract {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: space-between;
+
+				li {
+					border-right: solid 1px $text-colour;
+					border-left: solid 1px $text-colour;
+					padding: 0 20px;
+
+					&:first-of-type {
+						border-left: none;
+					}
+
+					&:last-of-type {
+						border-right: none;
+					}
+				}
+			}
+		}
+}
