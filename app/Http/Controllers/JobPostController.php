@@ -75,23 +75,25 @@ class JobPostController extends Controller
         $jobPost->company_id = $company_id;
         $jobPost->save();
 
-        //$data = $request->input('skill_name');
-
-        //$skills = Skills::select('skills.id')
-        //->where('skills.skill_name', $data)->get();
-        //$jobPost->skills()->attach($skills); 
 
         $jobPost->skills()->attach($request->skill);
 
-        // $benefits = new Benefits;
-        // $benefits->benefits = $request->benefits;
-        // $jobPost->benefits()->save($benefits);
-        $benefits = $request->benefits;
+        $benefits = new Benefits;
+        $benefits->benefits = $request->benefits;
+        $jobPost->benefits()->save($benefits);
+
+
+                /** CHUNK INSERT */
+
+
+        // $benefits = $request->benefits;              // Request the benefits
         
-        foreach($benefits as $benefit){
-            $input['benefits'] = $benefit;
-            $jobPost->benefits()->create($input);
-        }
+        // foreach($benefits as $benefit){              // Iterate over each benefit
+        
+        //     $input['benefits'] = $benefit;           // Store the benefit
+        //     $jobPost->benefits()->create($input);    // Create the benfit
+
+        // }
 
         return redirect('/posts')->with('success', 'Job Post added Successfully.');
         
@@ -121,10 +123,10 @@ class JobPostController extends Controller
 
     public function edit($id){
         $jobPost = JobPost::find($id);
-        $benefits = Benefits::find($id);
+        // $benefits = Benefits::find($id);
         $skills = Skills::find($id);
        
-        return view('posts.edit')->with('jobPost', $jobPost)->with('benefits', $benefits)->with('skills', $skills);
+        return view('posts.edit')->with('jobPost', $jobPost)->with('skills', $skills);
     }
     
     public function update(Request $request, $id) {
@@ -134,7 +136,7 @@ class JobPostController extends Controller
             'salary' => 'required',
             'commute_type' => 'required',
             'contract_type' => 'required',
-            'benefits' => 'required',
+            // 'benefits' => 'required',
         ]);
         
         $jobPost = JobPost::where('id',$id)->first();
@@ -150,9 +152,10 @@ class JobPostController extends Controller
         $jobPost->save();
     
     
-        //Saves benefit changes
-        $benefit->benefits = $request->input('benefits');
-        $benefit->save();
+        
+        // $benefit->benefits = $request->input('benefits'); // NEEDS TO CHANGE MULTIPLE
+        // $benefit->save();
+        
         
         return redirect()->route('posts.index')->with('success', 'Job Post updated Successfully.');
     }

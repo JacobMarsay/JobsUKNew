@@ -28,7 +28,7 @@ class JobPost extends Model
 
     public function benefits()
     {
-        return $this->hasMany(Benefits::class);
+        return $this->belongsToMany(Benefits::class);
     }
 
     public function skills()

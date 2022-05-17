@@ -11,6 +11,7 @@ use App\Models\Address;
 use App\Models\Education;
 use App\Models\skills;
 use App\Models\Reference;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -139,6 +140,21 @@ class RegisterController extends Controller
         $references->employer_contact = $request->employer_contact;
         $references->duration_worked = $request->duration_worked;
         $application->reference()->save($references);
+
+
+                            /* MULTIPLE INSERT */
+
+        // $allReferences = [];                                                    // Create empty array
+        // foreach ( $request->get('previous_company_name') as $reference) {       // Iterate over each company that has been entered
+        //     $allReferences[] = [                                                // Add each associate input to the array
+        //         'previous_company_name' => $request->previous_company_name,
+        //         'employer_name' => $request->employer_name,
+        //         'employer_contact' => $request->employer_contact,
+        //         'duration_worked' => $request->duration_worked,
+        //     ];
+            
+        //     $application->reference()->create($allReferences);                  // Save the record and repeat
+        // }
 
         return redirect('/');
 

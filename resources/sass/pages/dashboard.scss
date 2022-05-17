@@ -142,6 +142,18 @@
     .pagination{
         padding:25px;
         opacity: 95%;
+
+        nav {
+			display: flex;
+			flex-flow: column wrap !important;
+
+            div {
+                margin-bottom: 10px;
+                &.flex {
+                    display: none;
+                }
+            }
+		}
         
         svg{
             height:15px;

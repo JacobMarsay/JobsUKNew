@@ -230,7 +230,6 @@ a {
   justify-content: center;
   align-items: center;
   padding: 1px 16px;
-  height: 100vh;
 }
 
 .page_title {
@@ -496,6 +495,7 @@ a {
 .app-container {
   margin-bottom: 200px;
   background-color: #f1fafa;
+  height: 100vh;
 }
 @media only screen and (min-width: 900px) {
   .app-container {
@@ -521,6 +521,7 @@ a {
 }
 .app-container .content_container {
   order: 1;
+  overflow-y: scroll;
 }
 @media only screen and (min-width: 900px) {
   .app-container .content_container {
@@ -577,8 +578,7 @@ a {
   color: #727272;
 }
 .navigation__list li a:hover {
-  background-color: #0792A5;
-  color: #ffffff;
+  color: #0792A5;
 }
 .navigation__list li a span.text {
   display: none;
@@ -748,6 +748,16 @@ a {
 .pagination_container .pagination {
   padding: 25px;
   opacity: 95%;
+}
+.pagination_container .pagination nav {
+  display: flex;
+  flex-flow: column wrap !important;
+}
+.pagination_container .pagination nav div {
+  margin-bottom: 10px;
+}
+.pagination_container .pagination nav div.flex {
+  display: none;
 }
 .pagination_container .pagination svg {
   height: 15px;
@@ -992,7 +1002,10 @@ a {
 .company-show .left .header li span:first-of-type {
   margin-right: 5px;
 }
-.company-show .left .header li.email span svg, .company-show .left .header li.number span svg {
+.company-show .left .header li.email a {
+  margin-top: 0;
+}
+.company-show .left .header li.email span svg {
   width: 20px;
 }
 .company-show .left .header .title, .company-show .left .header .name {

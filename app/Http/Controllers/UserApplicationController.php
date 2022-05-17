@@ -92,8 +92,7 @@ class UserApplicationController extends Controller
             'education_type' => 'required',
             'course_name' => 'required',
             'results' => 'required',
-            'skill_name' => 'required',
-            'skill_type' => 'required',
+            // 'skill' => 'required',
             'previous_company_name' => 'required',
             'employer_name' => 'required',
             'employer_contact' => 'required',
@@ -104,7 +103,7 @@ class UserApplicationController extends Controller
         $application = Application::where('id',$id)->first();
         $address = Address::where('id',$id)->first();
         $education = Education::where('id',$id)->first();
-        $skills = Skills::where('id',$id)->first();
+        // $skills = Skills::where('id',$id)->first();
         $references = Reference::where('id',$id)->first();
        
 
@@ -132,9 +131,11 @@ class UserApplicationController extends Controller
         $education->results = $request->input('results');
         $education->save();
 
-        $skills->skill_name = $request->input('skill_name');
-        $skills->skill_type = $request->input('skill_type');
-        $skills->save();
+
+
+        // $skills->skill_name = $request->input('skill_name');     /* NEED MODIFYING TO ADD MULTIPLE SKILLS*/
+        // $skills->skill_type = $request->input('skill_type');
+        // $skills->save();
 
         $references->previous_company_name = $request->input('previous_company_name');
         $references->employer_name = $request->input('employer_name');

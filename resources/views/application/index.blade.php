@@ -9,7 +9,7 @@
             <h3>{{$application->career_type}}</h3>
 
             <ul class="contact">
-                <li>{{$user->email}}</li>
+                <li><a href="mailto:{{$user->email}}">{{$user->email}}</a></li>
                 <li>{{$jobSeeker->contact_number}}</li>
             </ul>
         </div>
@@ -42,12 +42,14 @@
                     <li>Grade</li>
                 </ul>
             </li>
-            @foreach ($education as $certificate)
-                <li>{{ $certificate->place_of_institution }}</li>
-                <li>{{ $certificate->education_type }}</li>
-                <li>{{ $certificate->course_name }}</li>
-                <li>{{ $certificate->results }}</li>
-            @endforeach
+            <ul>
+                @foreach ($education as $certificate)
+                    <li>{{ $certificate->place_of_institution }}</li>
+                    <li>{{ $certificate->education_type }}</li>
+                    <li>{{ $certificate->course_name }}</li>
+                    <li>{{ $certificate->results }}</li>
+                @endforeach
+            </ul>
         </ul>
 
         <h2>Skill Set</h2>
@@ -74,12 +76,14 @@
                     <li>Duration</li>
                 </ul>
             </li>
-            @foreach ($references as $reference)
-                <li>{{ $reference->previous_company_name }}</li>
-                <li>{{ $reference->employer_name }}</li>
-                <li>{{ $reference->employer_contact }}</li>
-                <li>{{ $reference->duration_worked }} Yr</li>
-            @endforeach
+            <ul>
+                @foreach ($references as $reference)
+                    <li>{{ $reference->previous_company_name }}</li>
+                    <li>{{ $reference->employer_name }}</li>
+                    <li>{{ $reference->employer_contact }}</li>
+                    <li>{{ $reference->duration_worked }} Yr</li>
+                @endforeach
+            </ul>
         </ul>
         <p>Years Of Experience: {{$application->years_of_experience}}</p>
         <div class="apply-button">

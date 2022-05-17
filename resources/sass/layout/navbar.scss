@@ -1,6 +1,7 @@
 .app-container {
     margin-bottom: 200px;
     background-color: $background-colour;
+    height: 100vh;
 
     @media only screen and (min-width: 900px) {
         margin-bottom: 0;
@@ -26,6 +27,7 @@
 
     .content_container {
         order: 1;
+        overflow-y: scroll;
 
         @media only screen and (min-width: 900px) {
             flex-grow: 1;
@@ -89,8 +91,7 @@
                 color: $text-colour;
 
                 &:hover {
-                    background-color: $primary-colour;
-                    color: $secondary-colour;
+                    color: $primary-colour;
                 }
 
                 span {

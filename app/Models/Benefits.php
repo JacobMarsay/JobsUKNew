@@ -13,12 +13,11 @@ class Benefits extends Model
     protected $primaryKey = 'id';
     protected $fillable = [
         'benefits',
-        'job_post_id',
         
     ];
 
     public function jobpost()
     {
-        return $this->belongsTo(JobPost::class);
+        return $this->belongsToMany(JobPost::class);
     }
 }

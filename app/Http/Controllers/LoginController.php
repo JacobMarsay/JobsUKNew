@@ -22,12 +22,12 @@ class LoginController extends Controller
 
         
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            
-            $role=Auth::user()->role;
+            $request->session()->regenerate(); // Start user session
+
+            $role=Auth::user()->role;           // Check user role
 
             if($role == 1){
-                return redirect()->intended('/applications');
+                return redirect()->intended('/applications'); 
             }
 
             if ($role == 2){

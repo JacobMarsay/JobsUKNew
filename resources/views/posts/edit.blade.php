@@ -65,7 +65,9 @@
             @endforeach
         </div>
     
-        <div class="">
+        {{-- WHEN MULTIPLE ADDS WORK, THE BELOW CAN BE USED  --}}
+
+        {{-- <div class="">
             <h1>Benefits</h1>
             @foreach ($jobPost->benefits as $benefit)
                 <label for="benefits">Benefits
@@ -75,6 +77,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             @endforeach
-        </div>
+        </div> --}}
+        
         <button type="submit" class="btn btn-blue">Update</button>
         @endsection

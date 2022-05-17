@@ -51,7 +51,7 @@
 
         <div class="benefits-wrapper">
             <div class="benefit-row">
-                <input class="benefit" id="benefits" placeholder="Benefit" type="text" name="benefits[]">
+                <input class="benefit" id="benefits" placeholder="Benefit" type="text" name="benefits">
 
                 <div class="add-button-wrapper">
                     <button class="add-benefit-input">+</button>

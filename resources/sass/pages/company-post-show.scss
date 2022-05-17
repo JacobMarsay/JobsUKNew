@@ -59,7 +59,12 @@
 						}
 					}
 
-					&.email, &.number {
+					&.email {
+
+						a {
+							margin-top: 0;
+						}
+						
 						span {
 							svg {
 								width: 20px;
